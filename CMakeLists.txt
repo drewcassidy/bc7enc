@@ -32,7 +32,8 @@ if (NOT MSVC)
 	if (NOT BUILD_X64)
 		set(GCC_COMPILE_FLAGS "${GCC_COMPILE_FLAGS} -m32")
 	endif()
-endif()	
+endif()
+
 
 set(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} ${GCC_COMPILE_FLAGS}")
 set(CMAKE_C_FLAGS_RELEASE  "${CMAKE_C_FLAGS_RELEASE} ${GCC_COMPILE_FLAGS}")
@@ -50,6 +51,7 @@ set (BC7ENC_SRC_LIST ${COMMON_SRC_LIST}
 	)
 	
 add_executable(bc7enc ${BC7ENC_SRC_LIST})
+target_compile_features(bc7enc PUBLIC cxx_std_11 c_std_11)
 
 if (NOT MSVC)
 	target_link_libraries(bc7enc m)
