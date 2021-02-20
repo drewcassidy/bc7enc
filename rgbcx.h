@@ -3083,9 +3083,9 @@ namespace rgbcx
 					b_z = (16 * sum_xy_b - sum_x * total_b) * div;
 				}
 
-				float a_y = (total_g - b_y * sum_x) / 16.0f;
-				float a_z = (total_b - b_z * sum_x) / 16.0f;
-								
+                                float a_y = (sum_x2 * total_g - sum_xy_g * sum_x) * div;
+                                float a_z = (sum_x2 * total_b - sum_xy_b * sum_x) * div;
+
 				l.c[1] = a_y + b_y * min_chan_val;
 				l.c[2] = a_z + b_z * min_chan_val;
 
@@ -3128,8 +3128,8 @@ namespace rgbcx
 					b_z = (16 * sum_xy_b - sum_x * total_b) * div;
 				}
 
-				float a_x = (total_r - b_x * sum_x) / 16.0f;
-				float a_z = (total_b - b_z * sum_x) / 16.0f;
+                                float a_x = (sum_x2 * total_r - sum_xy_r * sum_x) * div;
+                                float a_z = (sum_x2 * total_b - sum_xy_b * sum_x) * div;
 
 				l.c[0] = a_x + b_x * min_chan_val;
 				l.c[2] = a_z + b_z * min_chan_val;
@@ -3173,8 +3173,8 @@ namespace rgbcx
 					b_y = (16 * sum_xy_g - sum_x * total_g) * div;
 				}
 
-				float a_x = (total_r - b_x * sum_x) / 16.0f;
-				float a_y = (total_g - b_y * sum_x) / 16.0f;
+                                float a_x = (sum_x2 * total_r - sum_xy_r * sum_x) * div;
+                                float a_y = (sum_x2 * total_g - sum_xy_g * sum_x) * div;
 
 				l.c[0] = a_x + b_x * min_chan_val;
 				l.c[1] = a_y + b_y * min_chan_val;
